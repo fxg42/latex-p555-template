@@ -60,20 +60,15 @@
    morestring=[b]',
   }[keywords,comments,strings]
 
-\lstdefinelanguage{javascript}{
-  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
-  keywordstyle=\color{blue}\bfseries,
-  ndkeywords={class, export, boolean, throw, implements, import, this},
-  ndkeywordstyle=\color{darkgray}\bfseries,
-  identifierstyle=\color{black},
-  sensitive=false,
-  comment=[l]{//},
-  morecomment=[s]{/*}{*/},
-  commentstyle=\color{purple}\ttfamily,
-  stringstyle=\color{red}\ttfamily,
-  morestring=[b]',
-  morestring=[b]"
-}
+\lstdefinelanguage{javascript}
+  {morekeywords={typeof,new,true,false,catch,function,return,null,catch,switch,
+      var,if,in,while,do,else,case,break},
+   sensitive,
+   morecomment=[l]//,
+   morecomment=[s]{/*}{*/},
+   morestring=[b]",
+   morestring=[b]',
+  }[keywords,comments,strings]
 
 \definecolor{javared}{rgb}{0.6,0,0} % for strings
 \definecolor{javagreen}{rgb}{0.25,0.5,0.35} % comments
