@@ -135,6 +135,14 @@ eleifend turpis aliquet, non pellentesque velit vestibulum. Curabitur interdum
 quis tellus porttitor auctor. Fusce et purus ac tellus vulputate tincidunt vitae
 ac diam. 
 
+
+## Footnotes
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit<span class="footnote">This is the footnote.</span>. Curabitur mollis nisl
+eleifend turpis aliquet, non pellentesque velit vestibulum. Curabitur interdum
+quis tellus porttitor auctor. Fusce et purus ac tellus vulputate tincidunt vitae
+ac diam. 
+
 ## External references
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit @hunt2000pragmatic.

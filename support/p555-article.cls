@@ -16,7 +16,8 @@
 \RequirePackage{eso-pic,xcolor}
 \RequirePackage{graphicx}
 
-\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+% \renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\renewcommand{\thefootnote}{\arabic{footnote}}
 \newcommand{\footlink}[1] {\footnote{\href{#1}{\texttt{#1}}}}
 
 \RequirePackage{fontspec}

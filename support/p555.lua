@@ -85,7 +85,6 @@ function Superscript(s)
 end
 
 function Cite(lst)
-
   return '\\cite{'.. lst:gsub('^.', '') ..'}'
 end
 
@@ -284,7 +283,13 @@ function Note(s)
 end
 
 function Span(s, attr)
-  return s
+  local class = attr.class ~= nil and attr.class or ''
+
+  if class == 'footnote' then
+    return '\\footnote{'.. s ..'}'
+  else
+    return s
+  end
 end
 
 function Plain(s)
