@@ -2,13 +2,6 @@
 title     : 'Other title'
 subtitle  : 'Other subtitle'
 author    : 'Other author'
-references:
-  - id: hunt2000pragmatic
-    title: "The pragmatic programmer: from journeyman to master"
-    author: "Hunt, Andrew and Thomas, David"
-    year: "2000"
-    publisher: "Addison-Wesley Professional"
-
 ---
 
 Description {-}

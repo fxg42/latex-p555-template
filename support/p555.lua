@@ -1,6 +1,5 @@
 local inHistory = false
 local inAppendix = false
-local references = {}
 
 local function esc(s)
   return s:gsub('[_{}$]', '\\%0'):gsub('%%', '\\%%'):gsub('"([^"]*)"', '``%1"')
@@ -33,7 +32,6 @@ end
 
 function Doc(body, metadata, variables)
   local buffer = {}
-  references = metadata.references
 
   table.insert(buffer, '\\documentclass{p555-article}')
   if metadata['watermark'] ~= nil then
