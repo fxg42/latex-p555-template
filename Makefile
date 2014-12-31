@@ -15,6 +15,8 @@ PDF_FILES = $(addprefix $(DIST_DIR)/, $(notdir $(MARKDOWN_FILES:.md=.pdf)))
 DOCX_FILES = $(addprefix $(DIST_DIR)/, $(notdir $(MARKDOWN_FILES:.md=.docx)))
 
 all: $(BUILD_DIR) $(DIST_DIR) $(PDF_FILES) $(DOCX_FILES)
+pdf: $(BUILD_DIR) $(DIST_DIR) $(PDF_FILES)
+docx: $(BUILD_DIR) $(DIST_DIR) $(DOCX_FILES)
 
 $(DIST_DIR)/%.docx: $(SRC_DIR)/%.md
 	cd $(BUILD_DIR); $(PANDOC) $(PANDOC_FLAGS) ../$< -o $*.docx
