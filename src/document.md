@@ -81,9 +81,14 @@ ac diam. Phasellus pretium felis eu lacus interdum, vehicula suscipit dolor
 congue. Nam a tortor magna. Maecenas facilisis nunc sit amet sapien vestibulum,
 quis ultricies magna consectetur.
 
-```{#lst:alistingid lang=javascript caption="Some caption"}
-var hello = "Hello World!";
-console.log(hello);
+```{#lst:alistingid lang=elixir caption="Some caption"}
+defmodule TailFactorial do
+  def of(n), do: facto_of(n, 1)
+
+  defp facto_of(0, acc), do: acc
+  defp facto_of(1, acc), do: acc
+  defp facto_of(n, acc), do: facto_of(n-1, acc*n)
+end
 ```
 
 ### An unnumbered sub sub section with formatting and references {-}

@@ -10,17 +10,17 @@ LATEX_FLAGS =
 PANDOC = pandoc
 PANDOC_FLAGS = --standalone --smart --number-sections --toc --highlight-style=pygments
 
-MARKDOWN_FILES = $(wildcard $(SRC_DIR)/*.markdown)
-PDF_FILES = $(addprefix $(DIST_DIR)/, $(notdir $(MARKDOWN_FILES:.markdown=.pdf)))
-DOCX_FILES = $(addprefix $(DIST_DIR)/, $(notdir $(MARKDOWN_FILES:.markdown=.docx)))
+MARKDOWN_FILES = $(wildcard $(SRC_DIR)/*.md)
+PDF_FILES = $(addprefix $(DIST_DIR)/, $(notdir $(MARKDOWN_FILES:.md=.pdf)))
+DOCX_FILES = $(addprefix $(DIST_DIR)/, $(notdir $(MARKDOWN_FILES:.md=.docx)))
 
 all: $(BUILD_DIR) $(DIST_DIR) $(PDF_FILES) $(DOCX_FILES)
 
-$(DIST_DIR)/%.docx: $(SRC_DIR)/%.markdown
+$(DIST_DIR)/%.docx: $(SRC_DIR)/%.md
 	cd $(BUILD_DIR); $(PANDOC) $(PANDOC_FLAGS) ../$< -o $*.docx
 	cp $(BUILD_DIR)/$*.docx $(DIST_DIR)/
 
-$(DIST_DIR)/%.pdf: $(SRC_DIR)/%.markdown
+$(DIST_DIR)/%.pdf: $(SRC_DIR)/%.md
 	$(PANDOC) $< -t $(SUPPORT_DIR)/p555.lua -o $(BUILD_DIR)/$*.tex
 	cd $(BUILD_DIR); $(LATEX) $(LATEX_FLAGS) $*
 	cd $(BUILD_DIR); $(LATEX) $(LATEX_FLAGS) $*

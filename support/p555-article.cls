@@ -70,6 +70,13 @@
    morestring=[b]',
   }[keywords,comments,strings]
 
+\lstdefinelanguage{elixir}
+  {morekeywords={after,alias,case,catch,cond,def,defexception,defimpl,defmacro,defmodule,defp,defprotocol,defstruct,do,else,end,false,for,if,import,into,raise,receive,require,rescue,send,throw,true,try,unless,when},
+   sensitive,
+   morecomment=[l]\#,
+   morestring=[b]",
+  }[keywords,comments,strings]
+
 \definecolor{javared}{rgb}{0.6,0,0} % for strings
 \definecolor{javagreen}{rgb}{0.25,0.5,0.35} % comments
 \definecolor{javapurple}{rgb}{0.5,0,0.35} % keywords
