@@ -1,5 +1,6 @@
 local inHistory = false
 local inAppendix = false
+local references = {}
 
 local function esc(s)
   return s:gsub('[_{}$]', '\\%0'):gsub('%%', '\\%%'):gsub('"([^"]*)"', '``%1"')
@@ -32,6 +33,7 @@ end
 
 function Doc(body, metadata, variables)
   local buffer = {}
+  references = metadata.references
 
   table.insert(buffer, '\\documentclass{p555-article}')
   if metadata['watermark'] ~= nil then
@@ -85,7 +87,8 @@ function Superscript(s)
 end
 
 function Cite(lst)
-  return '{' .. lst .. '}'
+
+  return '\\cite{'.. lst:gsub('^.', '') ..'}'
 end
 
 function InlineMath(s)
@@ -109,6 +112,8 @@ function Header(lev, s, attr)
 
   if label == 'appendix' then
     return '\\appendix'
+  elseif label == 'references' then
+    return '\\bibliographystyle{plain}\\bibliography{'.. attr.bibtexfile ..'}'
   elseif label == 'table-of-contents' then
     return '\\tableofcontents\\newpage'
   elseif level == 1 then

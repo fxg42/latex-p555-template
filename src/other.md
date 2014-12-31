@@ -2,6 +2,13 @@
 title     : 'Other title'
 subtitle  : 'Other subtitle'
 author    : 'Other author'
+references:
+  - id: hunt2000pragmatic
+    title: "The pragmatic programmer: from journeyman to master"
+    author: "Hunt, Andrew and Thomas, David"
+    year: "2000"
+    publisher: "Addison-Wesley Professional"
+
 ---
 
 Description {-}
@@ -98,7 +105,7 @@ page~[pageref](fig:gnuimageid).
 
 ![A Gnu](gnu.png "gnuimageid")
 
-## References
+## Links
 
 - Reference to a listing: See listing~[ref](lst:snippetid)
 - Reference to an image: See figure~[ref](fig:gnuimageid)
@@ -135,3 +142,8 @@ eleifend turpis aliquet, non pellentesque velit vestibulum. Curabitur interdum
 quis tellus porttitor auctor. Fusce et purus ac tellus vulputate tincidunt vitae
 ac diam. 
 
+## External references
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit @hunt2000pragmatic.
+
+## References {bibtexfile=mybib}

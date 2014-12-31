@@ -5,6 +5,7 @@ SUPPORT_DIR = support
 DIST_DIR = dist
 
 LATEX = xelatex
+BIBTEX = bibtex
 LATEX_FLAGS =
 
 PANDOC = pandoc
@@ -17,6 +18,8 @@ all: $(BUILD_DIR) $(DIST_DIR) $(PDF_FILES)
 
 $(DIST_DIR)/%.pdf: $(SRC_DIR)/%.md
 	$(PANDOC) $< -t $(SUPPORT_DIR)/p555.lua -o $(BUILD_DIR)/$*.tex
+	cd $(BUILD_DIR); $(LATEX) $(LATEX_FLAGS) $*
+	cd $(BUILD_DIR); $(BIBTEX) $*
 	cd $(BUILD_DIR); $(LATEX) $(LATEX_FLAGS) $*
 	cd $(BUILD_DIR); $(LATEX) $(LATEX_FLAGS) $*
 	cp $(BUILD_DIR)/$*.pdf $(DIST_DIR)/
