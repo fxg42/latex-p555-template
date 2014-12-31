@@ -135,7 +135,7 @@ function BlockQuote(s)
 end
 
 function HorizontalRule()
-  return '\\rule'
+  return '\\hrulefill'
 end
 
 function CodeBlock(s, attr)
@@ -198,22 +198,45 @@ function Table(caption, aligns, widths, headers, rows)
   
   if inHistory then
     table.insert(buffer, '\\begin{versionhistory}')
-  else
-    --
-  end
-
-  for _, row in pairs(rows) do
-    local rowBuffer = {}
-    for _, c in pairs(row) do
-      table.insert(rowBuffer, c)
+    for _, row in pairs(rows) do
+      local rowBuffer = {}
+      for _, c in pairs(row) do
+        table.insert(rowBuffer, c)
+      end
+      table.insert(buffer, table.concat(rowBuffer, ' & ') .. '\\\\')
     end
-    table.insert(buffer, table.concat(rowBuffer, ' & ') .. '\\\\')
-  end
-
-  if inHistory then
     table.insert(buffer, '\\end{versionhistory}')
   else
-    --
+
+    local alignments = {}
+    for _, alignment in pairs(aligns) do
+      if alignment == "AlignLeft" then
+        table.insert(alignments, "l")
+      elseif alignment == "AlignRight" then
+        table.insert(alignments, "r")
+      elseif alignment == "AlignCenter" then
+        table.insert(alignments, "c")
+      else
+        table.insert(alignments, "X")
+      end
+    end
+    table.insert(buffer, '\\begin{tabularx}{\\textwidth}{|'..table.concat(alignments, '|')..'|}\\hline')
+
+    local headerBuffer = {}
+    for _, c in pairs(headers) do
+      table.insert(headerBuffer, '\\textbf{\\textsf{'..c..'}}')
+    end
+    table.insert(buffer, table.concat(headerBuffer, ' & ') .. '\\\\\\hline')
+
+    for _, row in pairs(rows) do
+      local rowBuffer = {}
+      for _, c in pairs(row) do
+        table.insert(rowBuffer, c)
+      end
+      table.insert(buffer, table.concat(rowBuffer, ' & ') .. '\\\\\\hline')
+    end
+
+    table.insert(buffer, '\\end{tabularx}')
   end
 
   return table.concat(buffer, '\n')

@@ -5,6 +5,8 @@
 \LoadClass{scrartcl}
 
 \RequirePackage{enumerate}
+\RequirePackage{mathtools}
+\everymath{\displaystyle}
 \RequirePackage{graphicx}
 \RequirePackage[pdfborder={0 0 0}]{hyperref}
 \RequirePackage{nameref}
