@@ -8,7 +8,10 @@ LATEX = xelatex
 LATEX_FLAGS =
 
 PANDOC = pandoc
-# PANDOC_FLAGS = --standalone --smart --number-sections --toc --highlight-style=pygments
+PANDOC_FLAGS = --standalone --smart --number-sections --toc --highlight-style=pygments
+
+MARKDOWN_FILES = $(wildcard $(SRC_DIR)/*.md)
+PDF_FILES = $(addprefix $(DIST_DIR)/, $(notdir $(MARKDOWN_FILES:.md=.pdf)))
 
 all: $(BUILD_DIR) $(DIST_DIR) $(PDF_FILES)
 
